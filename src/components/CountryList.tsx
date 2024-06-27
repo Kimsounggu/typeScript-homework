@@ -60,12 +60,13 @@ const CountryListL: React.FC = () => {
             <div
               key={country.name.common}
               style={{
-                border: "1px solid #ccc",
-                padding: "8px",
+                border: "3px solid green",
+                padding: "4px",
                 borderRadius: "4px",
                 cursor: "pointer",
-                fontSize: "10px",
+                fontSize: "16px",
                 textAlign: "center",
+                boxShadow: "1px 3px 3px gray",
               }}
               onClick={() => handleSelectCountry(country)}
             >
@@ -87,7 +88,7 @@ const CountryListL: React.FC = () => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(5, 1fr)",
+          gridTemplateColumns: "repeat(4, 1fr)",
           gap: "16px",
         }}
       >
@@ -97,10 +98,12 @@ const CountryListL: React.FC = () => {
               key={country.name.common}
               style={{
                 border: "1px solid #ccc",
-                padding: "8px",
+                padding: "1rem",
                 borderRadius: "4px",
-                fontSize: "10px",
+                fontSize: "16px",
                 textAlign: "center",
+                boxShadow: "3px 3px 3px gray",
+                cursor: "pointer",
               }}
               onClick={() => handleSelectCountry(country)}
             >
