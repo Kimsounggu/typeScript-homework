@@ -8,6 +8,7 @@ const CountryListL: React.FC = () => {
   const [selectedCountries, setSelectedCountries] = React.useState<Country[]>(
     []
   );
+
   React.useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -40,31 +41,72 @@ const CountryListL: React.FC = () => {
 
   return (
     <div>
-      <h1> Favorite Countries </h1>
-      <div>
-        {selectedCountries.map((country: Country) => {
-          return (
-            <CountryCard
-              key={country.name.common}
-              country={country}
-              handleSelectCountry={handleSelectCountry}
-            />
-          );
-        })}
-      </div>
-      <h1> Countries </h1>
+      <h3
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Favorite Countries
+      </h3>
       <div
         style={{
           display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "16px",
+        }}
+      >
+        {selectedCountries.map((country: Country) => {
+          return (
+            <div
+              key={country.name.common}
+              style={{
+                border: "1px solid #ccc",
+                padding: "8px",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "10px",
+              }}
+              onClick={() => handleSelectCountry(country)}
+            >
+              <CountryCard
+                country={country}
+                handleSelectCountry={handleSelectCountry}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <h4
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Countries
+      </h4>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "16px",
         }}
       >
         {countries.map((country: Country) => {
           return (
-            <CountryCard
+            <div
               key={country.name.common}
-              country={country}
-              handleSelectCountry={handleSelectCountry}
-            />
+              style={{
+                border: "1px solid #ccc",
+                padding: "8px",
+                borderRadius: "4px",
+                fontSize: "10px",
+              }}
+              onClick={() => handleSelectCountry(country)}
+            >
+              <CountryCard
+                country={country}
+                handleSelectCountry={handleSelectCountry}
+              />
+            </div>
           );
         })}
       </div>
@@ -73,4 +115,3 @@ const CountryListL: React.FC = () => {
 };
 
 export default CountryListL;
-//마지막 동영상보고 하기
